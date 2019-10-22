@@ -1,0 +1,22 @@
+#!/bin/bash --login
+
+#PBS -N ZnO
+#PBS -l select=1:ncpus=36
+#PBS -l place=scatter:excl
+#PBS -l walltime=00:30:00
+#PBS -A y15
+
+cd $PBS_O_WORKDIR
+
+module load anaconda
+module load vasp
+
+for dir in "w-ZnO" "c-ZnO"
+do
+  cd "${dir}"
+  
+  python "../Opt-EV.py"
+  
+  cd ..
+done
+

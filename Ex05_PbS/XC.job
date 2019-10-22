@@ -1,0 +1,37 @@
+#!/bin/bash --login
+
+#PBS -N PbS
+#PBS -l select=1:ncpus=36
+#PBS -l place=scatter:excl
+#PBS -l walltime=00:15:00
+#PBS -A y15
+
+cd $PBS_O_WORKDIR
+
+module load vasp
+
+for incar in $(ls INCAR.*)
+do
+  dir="${incar/INCAR./Opt-}"
+  
+  if [ -d "${dir}" ]
+  then
+    echo "Error: Directory '${dir}' already exists - please remove or rename."
+    exit 1
+  fi
+  
+  mkdir "${dir}"
+  
+  cp "${incar}" "${dir}/INCAR"
+  
+  for f in "KPOINTS" "POSCAR" "POTCAR"
+  do
+    cp "${f}" "${dir}/${f}"
+  done
+  
+  cd "${dir}"
+  
+   mpirun -ppn 36 -n 36 vasp_std | tee "../${dir}.out"
+  
+  cd ..
+done

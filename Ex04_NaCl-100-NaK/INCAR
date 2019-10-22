@@ -1,0 +1,31 @@
+! Technical.
+
+ENCUT = 500
+GGA = PS
+LASPH = .TRUE.
+LREAL = Auto
+PREC = Accurate
+
+! Electronic SCF.
+
+ALGO = Normal
+EDIFF = 1e-8
+ISMEAR = 0
+SIGMA = 0.01
+
+! Geometry optimisation.
+
+EDIFFG = -1e-2
+IBRION = 2
+ISIF = 2
+NSW = 100
+
+! Parallelisation.
+
+NCORE = 12
+
+! Misc.
+
+LCHARG = .FALSE.
+LWAVE = .FALSE.
+SYSTEM = NaCl <100> (Na -> K)

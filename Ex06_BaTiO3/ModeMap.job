@@ -1,0 +1,15 @@
+#!/bin/bash --login
+
+#PBS -N BaTiO3
+#PBS -l select=1:ncpus=36
+#PBS -l place=scatter:excl
+#PBS -l walltime=01:00:00
+#PBS -A y15
+
+cd $PBS_O_WORKDIR
+
+module load anaconda
+module load vasp
+
+python ModeMap.py
+

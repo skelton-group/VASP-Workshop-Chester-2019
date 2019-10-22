@@ -1,0 +1,24 @@
+! Technical.
+
+ENCUT = 800
+GGA = PS
+LASPH = .TRUE.
+LREAL = .FALSE.
+PREC = Accurate
+
+! Electronic SCF.
+
+ALGO = Normal
+EDIFF = 1e-8
+ISMEAR = 0
+SIGMA = 0.01
+
+! Parallelisation.
+
+NCORE = 18
+
+! Misc.
+
+LCHARG = .FALSE.
+LWAVE = .FALSE.
+SYSTEM = BaTiO3

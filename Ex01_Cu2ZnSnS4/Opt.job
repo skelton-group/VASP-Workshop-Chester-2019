@@ -1,0 +1,14 @@
+#!/bin/bash --login
+
+#PBS -N CZTS
+#PBS -l select=1:ncpus=36
+#PBS -l place=scatter:excl
+#PBS -l walltime=00:30:00
+#PBS -A y15
+
+cd $PBS_O_WORKDIR
+
+module load vasp
+
+python Opt.py
+

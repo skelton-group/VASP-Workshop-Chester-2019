@@ -1,0 +1,31 @@
+! Technical.
+
+ENCUT = 600
+GGA = PS
+LASPH = .TRUE.
+LREAL = .FALSE.
+PREC = Accurate
+
+! Electronic SCF.
+
+ALGO = Normal
+EDIFF = 1e-8
+ISMEAR = 0
+SIGMA = 0.01
+
+! Geometry optimisation.
+
+EDIFFG = -1e-2
+IBRION = 1
+ISIF = 3
+NSW = 25
+
+! Parallelisation.
+
+NCORE = 18
+
+! Misc.
+
+LCHARG = .FALSE.
+LWAVE = .FALSE.
+SYSTEM = PbS

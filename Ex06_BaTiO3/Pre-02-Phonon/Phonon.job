@@ -1,0 +1,14 @@
+#!/bin/bash --login
+
+#PBS -N BaTiO3
+#PBS -l select=1:ncpus=36
+#PBS -l place=scatter:excl
+#PBS -l walltime=00:15:00
+#PBS -A y15
+
+cd $PBS_O_WORKDIR
+
+module load vasp
+
+mpirun -ppn 36 -n 36 vasp_std | tee vasp.out
+
